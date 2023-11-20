@@ -1,0 +1,47 @@
+.container-pnf {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .heading-pnf {
+    font-size: 4em;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .subheading-pnf {
+    font-size: 1.5em;
+    color: #666;
+    margin-bottom: 40px;
+  }
+  
+  .container-pnf::before {
+    content: '';
+    background: url('https://cdn.pixabay.com/photo/2017/03/09/12/31/error-2129569_1280.jpg') center/cover no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.2;
+  }
+  
+  .container-pnf {
+    position: relative;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .container-pnf::after {
+    content: '';
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
