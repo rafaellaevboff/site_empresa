@@ -1,14 +1,10 @@
 import { Link } from 'react-router-dom'
-import { useContext } from 'react'
-import {CONTEXT } from '../../contexts/contexts.js'
 import './Header.css'
 
 const Header = ({title}) => {
-    const {valor} = useContext(CONTEXT)
-    console.log("context: ", valor)
+   
     return (
         <>
-
         <div className="fundo">
             <div className='half'>
                 <div className="half-content">

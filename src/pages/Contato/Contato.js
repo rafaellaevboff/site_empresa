@@ -9,7 +9,7 @@ function Contato(){
 
             <div className="container">
                 <div className="half">
-                    <img src="https://cdn.pixabay.com/photo/2017/08/04/10/33/background-2579715_1280.jpg"></img>
+                    <img alt="imagem decorativa" src="https://cdn.pixabay.com/photo/2017/08/04/10/33/background-2579715_1280.jpg"></img>
                 </div>
                 <div className="half">
                     <div className="half-content">

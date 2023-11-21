@@ -5,7 +5,7 @@ function Card({props, largura, altura, descricao = false}){
 
     const estiloFoto = {
         width: largura,
-        height: `calc(${altura} - 13vh)`,
+        height: `calc(${altura} - 15vh)`,
         backgroundImage: `url(${props.photo_url})`, 
         backgroundSize: 'cover',
         backgroundPosition: 'center'
@@ -25,7 +25,7 @@ function Card({props, largura, altura, descricao = false}){
                 <Link to={`/produto/${props.id}`}>
                     <div className='imagem' style={estiloFoto}></div>
                     <div className="info">
-                        <h2>{props.name}</h2>
+                        <p style={{paddingTop:'5px', margin:'0px', fontSize:'25px'}}>{props.name}</p>
                         <p>R$ {props.price}</p>
                         { descricao && <p>{props.description}</p>}
                     </div>

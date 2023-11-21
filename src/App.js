@@ -6,22 +6,25 @@ import Produto from './pages/Produto/Produto';
 import Contato from './pages/Contato/Contato';
 import PageNotFound from './pages/PageNotFound/PageNotFound';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
+import { ProductContext } from './contexts/productContext';
 
 function App() {
+  const[products, setProducts] = useState()
+
   return (
     <>
+    <ProductContext.Provider value={{products, setProducts}}>
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/produtos' element={<Produtos />} />
-          <Route path='/produto' element={<Produto />} />
-          <Route path='/produto'>
-            <Route path=':id' element={<Produto />}/>
-          </Route>
+          <Route path='/produto/:id/*' element={<Produto />} />
           <Route path='/contato' element={<Contato />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
+      </ProductContext.Provider>
       
     </>
   );
