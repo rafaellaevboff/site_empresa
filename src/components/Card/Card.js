@@ -17,12 +17,10 @@ function Card({props, largura, altura, descricao = false}){
         margin: '30px'
     }
 
-    console.log("ITEM: ", props);
-
     return (
         <>
             <div style={tamanhoCard}>
-                <Link to={`/produto/${props.id}`}>
+                <Link to={`/produto/${props.id}/*`}>
                     <div className='imagem' style={estiloFoto}></div>
                     <div className="info">
                         <p style={{paddingTop:'5px', margin:'0px', fontSize:'25px'}}>{props.name}</p>

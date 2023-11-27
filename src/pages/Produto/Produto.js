@@ -7,8 +7,8 @@ import { ProductContext } from '../../contexts/productContext';
 
 function Produto(){
 
-    const productsContext = useContext(ProductContext)
     const [data, setData] = useState([]);
+    const productsContext = useContext(ProductContext)
     
     // useEffect(() => {
     //     fetch(`http://localhost:3001/products/${id}`)
@@ -20,10 +20,9 @@ function Produto(){
     const parms = useParams()
 
     useEffect(() => {
-    console.log(productsContext.products)
        const produtoClicado = productsContext.products.filter((product)=> product.id == parms.id)
        setData(produtoClicado[0])
-    }, []);
+    }, [parms.id, productsContext.products]);
 
     return (
         <>

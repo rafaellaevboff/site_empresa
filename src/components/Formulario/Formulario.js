@@ -4,10 +4,10 @@ import './Formulario.css'
 function Formulario(){
 
     const [formData, setFormData] = useState({
-        nome: '',
-        email: '',
-        telefone: '',
-        cidade: ''
+        name: '',
+        price: '',
+        description: '',
+        photo_url: ''
     })
 
     const handleChange = (e) => {
@@ -18,48 +18,60 @@ function Formulario(){
         });
     };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        cadastrarProduto(formData)
+    }
 
-    const mandarSubmit = () =>{
-        // Recupere os dados anteriores do localStorage (se existirem)
-        const savedData = localStorage.getItem('formData');
-        let formDataArray = [];
-
-        if (savedData) {
-            formDataArray = JSON.parse(savedData);
+    async function cadastrarProduto (produto) {
+        try {
+            console.log(produto);
+            const resposta = await fetch('http://localhost:3001/products', {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: produto.name,
+                    price: produto.price,
+                    description: produto.description,
+                    photo_url: produto.photo_url
+                })
+            });
+            if (!resposta.ok) {
+                throw new Error('Erro ao cadastrar o produto');
+            }
+    
+        } catch (error) {
+            console.error('Erro na requisição:', error);
         }
-
-        // Adicione o objeto atual ao array
-        formDataArray.push(formData);
-
-        // Salve o array atualizado no localStorage
-        localStorage.setItem('formData', JSON.stringify(formDataArray));
     }
 
     return (
         <>
             <form className="background">
-                <h2>NOVO CLIENTE</h2>
+                <h2>NOVO PRODUTO</h2>
                 <div className="elemento">
                     <label className="identificador">Nome</label><br/>
-                    <input type="text" name="nome" value={formData.nome} onChange={handleChange}/><br/>
+                    <input type="text" name="name" value={formData.name} onChange={handleChange}/><br/>
                 </div>
 
                 <div className="elemento">
-                    <label className="identificador">Email</label><br/>
-                    <input type="text" name="email" value={formData.email} onChange={handleChange}/><br/>
+                    <label className="identificador">Valor</label><br/>
+                    <input type="text" name="price" value={formData.price} onChange={handleChange}/><br/>
                 </div>
 
                 <div className="elemento">
-                    <label className="identificador">Telefone</label><br/>
-                    <input type="tel" name="telefone" value={formData.telefone} onChange={handleChange}/><br/>
+                    <label className="identificador">Descrição</label><br/>
+                    <input type="text" name="description" value={formData.description} onChange={handleChange}/><br/>
                 </div>
                 
                 <div className="elemento">
-                    <label className="identificador">Cidade</label><br/>
-                    <input type="text" name="cidade" value={formData.cidade} onChange={handleChange}/><br/>
+                    <label className="identificador">Link da foto do produto</label><br/>
+                    <input type="text" name="photo_url" value={formData.photo_url} onChange={handleChange} /><br/>
                 </div>
                 
-                <button className="botaoEnviar" onClick={mandarSubmit}>Enviar</button>
+                <button className="botaoEnviar" onClick={handleSubmit}>Enviar</button>
             </form>
         </>
     )

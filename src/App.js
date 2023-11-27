@@ -13,7 +13,6 @@ function App() {
   const[products, setProducts] = useState()
 
   return (
-    <>
     <ProductContext.Provider value={{products, setProducts}}>
       <BrowserRouter>
         <Routes>
@@ -25,8 +24,6 @@ function App() {
         </Routes>
       </BrowserRouter>
       </ProductContext.Provider>
-      
-    </>
   );
 }
 
