@@ -3,6 +3,8 @@ import './Formulario.css'
 
 function Formulario(){
 
+    const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
     const [formData, setFormData] = useState({
         name: '',
         price: '',
@@ -21,6 +23,17 @@ function Formulario(){
     const handleSubmit = (e) => {
         e.preventDefault();
         cadastrarProduto(formData)
+        setFormData({
+            name: '',
+            price: '',
+            description: '',
+            photo_url: ''
+          });
+        
+        setShowSuccessMessage(true);
+        setTimeout(() => {
+            setShowSuccessMessage(false);
+        }, 3000);
     }
 
     async function cadastrarProduto (produto) {
@@ -72,7 +85,9 @@ function Formulario(){
                 </div>
                 
                 <button className="botaoEnviar" onClick={handleSubmit}>Enviar</button>
+                
             </form>
+            {showSuccessMessage && <div className="success-message">Produto cadastrado com sucesso!</div>}
         </>
     )
 }
