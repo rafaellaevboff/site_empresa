@@ -1,0 +1,24 @@
+.welcome-container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blur-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.pexels.com/photos/19125266/pexels-photo-19125266/free-photo-of-relaxar.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover;
+    filter: blur(5px);
+}
+
+.welcome-content {
+    text-align: center;
+    color: white;
+    z-index: 1;
+    text-shadow: 3px 3px 4px black;
+}

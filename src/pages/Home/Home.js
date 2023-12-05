@@ -1,9 +1,14 @@
 import Header from "../../components/Header/Header"
+import Inicio from "../../components/Inicio/Inicio"
 import './Home.css'
 
-function Home(){
+function Home() {
     return (
-        <Header title={"INÍCIO"}/>
+        <>
+            <Header title={"INÍCIO"} />
+            <Inicio />
+        </>
+
     )
 }
 
