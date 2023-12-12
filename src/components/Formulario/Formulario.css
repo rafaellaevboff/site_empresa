@@ -4,14 +4,14 @@ body {
     color: black;
 }
 
-.identificador{
+.identificador {
     display: flex;
     justify-content: flex-start;
     margin-left: 35px;
     font-size: 20px;
 }
 
-.background{
+.background {
     background-color: #f1f1f1;
     padding: 40px;
     border-radius: 10%;
@@ -19,7 +19,7 @@ body {
     height: 500px;
 }
 
-.botaoEnviar{
+.botaoEnviar {
     color: white;
     background-color: #393839;
     border: none;
@@ -29,14 +29,14 @@ body {
     margin-top: 20px;
 }
 
-input{
+input {
     width: 330px;
     height: 30px;
     margin-bottom: 15px;
     border: none;
 }
 
-h2{
+h2 {
     margin-bottom: 15px;
     font-size: 25px;
 }
@@ -52,5 +52,17 @@ h2{
     padding: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     z-index: 999;
-  }
-  
+}
+
+.error-message {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #af4c4c;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
